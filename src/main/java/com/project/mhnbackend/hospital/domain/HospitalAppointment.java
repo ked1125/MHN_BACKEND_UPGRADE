@@ -8,9 +8,10 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "hospital_appointment", uniqueConstraints = {
-		@UniqueConstraint(columnNames = {"appointmentDateTime", "hospital_id"})
-})
+@Table(name = "hospital_appointment")
+//@Table(name = "hospital_appointment", uniqueConstraints = {
+//		@UniqueConstraint(columnNames = {"appointmentDateTime", "hospital_id"})
+//})
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

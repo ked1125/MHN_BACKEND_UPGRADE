@@ -30,6 +30,8 @@ public class HospitalAppointmentResponseDTO {
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private Hospital hospital;
 	
+	private LocalDateTime createdAt;
+	
 	@Enumerated(EnumType.STRING)
 	private HospitalAppointment.AppointmentStatus status;
 }
