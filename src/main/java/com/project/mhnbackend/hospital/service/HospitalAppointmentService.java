@@ -153,7 +153,7 @@ public class HospitalAppointmentService {
 			
 			if (existingApprovedAppointment.isPresent()) {
 				throw new RuntimeException("이미 같은 시간에 승인된 예약이 있습니다.");
-			}
+			}   
 		}
 		
 		appointment.setStatus(newStatus);
