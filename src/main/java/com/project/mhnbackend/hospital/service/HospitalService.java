@@ -134,7 +134,7 @@ public class HospitalService {
 		
 		return hospitalComments.stream ().map ((comment) -> HospitalCommentResponseDTO.builder ()
 						.hospitalId (comment.getHospital ().getId ())
-						.member (comment.getMember())
+						.member (comment.getMember ())
 						.comment (comment.getContent ())
 						.id (comment.getId ())
 						.createdAt (comment.getCreatedAt ())
@@ -211,16 +211,16 @@ public class HospitalService {
 	}
 	
 	// 병원 별점 평균
-	public HospitalRatingAVGResponseDTO getHospitalRatingAVG(Long hospitalId) {
-		Double ratingAVGByHospitalId = hospitalCommentRepository.getAVGRating(hospitalId);
+	public HospitalRatingAVGResponseDTO getHospitalRatingAVG (Long hospitalId) {
+		Double ratingAVGByHospitalId = hospitalCommentRepository.getAVGRating (hospitalId);
 		
 		// null 체크 추가
 		double avgRating = (ratingAVGByHospitalId != null) ? ratingAVGByHospitalId : 0.0;
 		
-		return HospitalRatingAVGResponseDTO.builder()
-				.hospitalId(hospitalId)
-				.ratingAVG(avgRating)
-				.build();
+		return HospitalRatingAVGResponseDTO.builder ()
+				.hospitalId (hospitalId)
+				.ratingAVG (avgRating)
+				.build ();
 	}
 //	public HospitalRatingAVGResponseDTO getHospitalRatingAVG (Long hospitalId) {
 ////		double ratingAVGByHospitalId = hospitalCommentRepository.getAVGRating (hospitalId);
@@ -235,7 +235,6 @@ public class HospitalService {
 //				.build ();
 //	}
 	
-
 	
 	// 즐겨찾기한 병원 리스트 겟
 	public List<HospitalAccountBMKListResponseDTO> getHospitalAccountBMKList (Long memberId) {
@@ -252,18 +251,18 @@ public class HospitalService {
 	// 검색한 병원 리스트 겟
 	@Transactional
 	public List<HospitalResponseDTO> getSearchedHospitalListByName (String name) {
-		List<Hospital> searchHospitals = hospitalRepository.searchedHospitalListByName(name);
+		List<Hospital> searchHospitals = hospitalRepository.searchedHospitalListByName (name);
 		return searchHospitals.stream ().map (
-				(searchList) -> HospitalResponseDTO.builder ()
-						.id (searchList.getId ())
-						.name (searchList.getName ())
-						.latitude (searchList.getLatitude ())
-						.longitude (searchList.getLongitude ())
-						.address (searchList.getAddress ())
-						.phone(searchList.getPhone ())
-						.build ()
+						(searchList) -> HospitalResponseDTO.builder ()
+								.id (searchList.getId ())
+								.name (searchList.getName ())
+								.latitude (searchList.getLatitude ())
+								.longitude (searchList.getLongitude ())
+								.address (searchList.getAddress ())
+								.phone (searchList.getPhone ())
+								.build ()
 				)
 				.collect (Collectors.toList ());
-				
+		
 	}
 }

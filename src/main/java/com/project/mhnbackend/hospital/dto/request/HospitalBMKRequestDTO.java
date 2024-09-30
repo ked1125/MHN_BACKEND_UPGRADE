@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class HospitalBMKRequestDTO {
-//	private Long id;
-		private Long memberId;
+	//	private Long id;
+	private Long memberId;
 	private Long hospitalId;
 }

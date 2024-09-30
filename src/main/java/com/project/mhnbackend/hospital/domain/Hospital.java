@@ -11,13 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Getter
-@Table(name="hospital")
+@Table(name = "hospital")
 public class Hospital {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-//	private Long boardId;
+	//	private Long boardId;
 	private String name;
 	private double latitude;
 	private double longitude;

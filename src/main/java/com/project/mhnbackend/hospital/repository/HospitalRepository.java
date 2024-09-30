@@ -16,11 +16,11 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
 	
 	//=== gpt버전 3km이내 반경 ===
 	@Query("SELECT h FROM Hospital h WHERE h.latitude BETWEEN :minLat AND :maxLat AND h.longitude BETWEEN :minLon AND :maxLon")
-	List<Hospital> findHospitalsInArea(@Param("minLat") double minLat,
-	                                   @Param("maxLat") double maxLat,
-	                                   @Param("minLon") double minLon,
-	                                   @Param("maxLon") double maxLon);
+	List<Hospital> findHospitalsInArea (@Param("minLat") double minLat,
+	                                    @Param("maxLat") double maxLat,
+	                                    @Param("minLon") double minLon,
+	                                    @Param("maxLon") double maxLon);
 	
 	@Query("SELECT h FROM Hospital h WHERE h.name LIKE %:name%")
-	List<Hospital> searchedHospitalListByName (@Param ("name") String name);
+	List<Hospital> searchedHospitalListByName (@Param("name") String name);
 }
